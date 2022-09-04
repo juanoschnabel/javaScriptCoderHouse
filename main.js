@@ -1,36 +1,90 @@
-// PASTEL DE PAPAS
-const papas = 0.25;
-const carnePicada = 0.25;
-const cebolla = 0.25;
-const morron = 0.25;
-const ajo = 0.5;
-const manteca = 10;
-let comensales;
-do {
-  comensales = prompt(
-    "Aquí tenemos la receta perfecta del pastel de papas!! \nIngrese la cantidad de comesales y, a continuación, te daremos las cantidades correctas de cada ingrediente!"
-  );
-  if (!isNaN(comensales) && comensales >= 1) {
+// TIPOS DE VEHÍCULOS
+const vehicle1 = "moto";
+const vehicle2 = "auto";
+const vehicle3 = "camioneta";
+// PRECIO DE LOS VEHICULOS X DIA
+const priceVehicle1 = 1000;
+const priceVehicle2 = 1500;
+const priceVehicle3 = 2000;
+
+function final(vehicle, days) {
+  if (vehicle === vehicle1 || vehicle === vehicle3) {
     alert(
-      "La cantidad de gente para la que cocinas es " +
-        comensales +
-        ". Tu receta debe llevar: \n" +
-        papas * comensales +
-        "kg de papas \n" +
-        carnePicada * comensales +
-        " kg de carne picada \n" +
-        cebolla * comensales +
-        " kg de cebolla \n" +
-        morron * comensales +
-        " morrones rojos \n" +
-        ajo * comensales +
-        " dientes de ajo \n" +
-        comensales * manteca +
-        " gr de manteca \n"
+      "Usted seleccionó una " +
+        vehicle +
+        " para alquilar por el plazo de " +
+        days +
+        " días"
     );
-  } else if (!isNaN(comensales) && comensales < 1 && comensales != "") {
-    alert("Sin comensales no hay pastel!!");
   } else {
-    alert("Debes ingresar un dato válido. Vuelve a intenarlo!");
+    alert(
+      "Usted seleccionó un " +
+        vehicle +
+        " para alquilar por el plazo de " +
+        days +
+        " días"
+    );
   }
-} while (isNaN(comensales) || comensales == 0 || comensales < 0);
+  if (vehicle === vehicle1) {
+    vehicle = priceVehicle1;
+    alert("El precio final del alquiler solicitado es $" + vehicle * days);
+  } else if (vehicle === vehicle2) {
+    vehicle = priceVehicle2;
+    alert("El precio final del alquiler solicitado es $" + vehicle * days);
+  } else {
+    vehicle = priceVehicle3;
+    alert("El precio final del alquiler solicitado es $" + vehicle * days);
+  }
+  alert("Gracias por elegirnos!!");
+}
+final(electionVehicles(), time());
+
+function time() {
+  let days = Number(
+    prompt("Seleccione la cantidad de días que desea alquilar el vehículo")
+  );
+  return days;
+}
+
+function electionVehicles() {
+  let electionVehicle = Number(
+    prompt(
+      "Seleccione el número correspondiente al tipo de vehículo que desea seleccionar: \n1. " +
+        vehicle1 +
+        "\n2. " +
+        vehicle2 +
+        "\n3. " +
+        vehicle3
+    )
+  );
+
+  switch (electionVehicle) {
+    case 1:
+      alert(
+        "El vehículo seleccionado es una " +
+          vehicle1 +
+          " y el precio por día de alquiler es $" +
+          priceVehicle1
+      );
+      return (electionVehicle = vehicle1);
+    case 2:
+      alert(
+        "El vehículo seleccionado es un " +
+          vehicle2 +
+          " y el precio por día de alquiler es $" +
+          priceVehicle2
+      );
+      return (electionVehicle = vehicle2);
+    case 3:
+      alert(
+        "El vehículo seleccionado es una " +
+          vehicle3 +
+          " y el precio por día de alquiler es $" +
+          priceVehicle3
+      );
+      return (electionVehicle = vehicle3);
+    default:
+      alert("El vehículo seleccionado no existe");
+      return (electionVehicle = "No existe");
+  }
+}
