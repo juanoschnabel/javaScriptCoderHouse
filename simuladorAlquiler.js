@@ -31,9 +31,11 @@ function final(vehicle, days) {
   } else if (vehicle === vehicle2) {
     vehicle = priceVehicle2;
     alert("El precio final del alquiler solicitado es $" + vehicle * days);
-  } else {
+  } else if (vehicle === vehicle3) {
     vehicle = priceVehicle3;
     alert("El precio final del alquiler solicitado es $" + vehicle * days);
+  } else {
+    alert("Error!! Vuelva a intentarlo");
   }
   alert("Gracias por elegirnos!!");
 }
@@ -57,7 +59,6 @@ function electionVehicles() {
         vehicle3
     )
   );
-
   switch (electionVehicle) {
     case 1:
       alert(
